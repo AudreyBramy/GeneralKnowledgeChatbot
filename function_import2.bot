@@ -1,0 +1,38 @@
+<chatbot-def start="greeting" bot-prompt="me: " user-prompt="you: ">
+
+
+  <function name="hello">
+
+def hello(input):
+  from gkc.tutorial import getTopic
+  
+  topic = getTopic(input)
+  if topic != None:
+    print("the topic is "+topic)
+    return True
+  else:
+    return False
+
+  </function>
+
+
+
+  <state id="greeting">
+
+    <start>
+      <sentence>Hi, what's your question?</sentence>
+    </start>  
+   
+    <input>
+      <case type="function" name="hello">
+        <sentence delay="1.3">Good bye!</sentence>
+      </case>
+      <loopback>
+        <sentence delay="1.3">Sorry, I don't understand. I can understand the words : dog, cat, tomato or pizza</sentence>
+      </loopback>
+    </input>
+
+  </state>
+
+
+</chatbot-def>
