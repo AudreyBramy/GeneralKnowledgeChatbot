@@ -1,0 +1,49 @@
+<chatbot-def start="greeting" bot-prompt="me: " user-prompt="you: ">
+
+
+  <function name="checkAnimal">
+
+def checkAnimal(input):
+  if "dog" in input or "cat" in input: 
+     return True
+  else:
+     return False
+
+  </function>
+
+
+
+  <function name="checkFood">
+
+def checkFood(input):
+  if "tomato" in input or "pizza" in input: 
+     return True
+  else:
+     return False
+
+  </function>
+
+
+
+  <state id="greeting">
+
+    <start>
+      <sentence>Hi, what's your question?</sentence>
+    </start>  
+   
+    <input>
+      <case type="function" name="checkAnimal">
+        <sentence delay="1.3">The topic is animal</sentence>
+      </case>
+      <case type="function" name="checkFood">
+        <sentence delay="1.3">The topic is food</sentence>
+      </case>
+      <loopback>
+        <sentence delay="1.3">Sorry, I don't understand. I can understand the words : dog, cat, tomato or pizza</sentence>
+      </loopback>
+    </input>
+
+  </state>
+
+
+</chatbot-def>
