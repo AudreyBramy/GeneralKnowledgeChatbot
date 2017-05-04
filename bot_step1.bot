@@ -1,0 +1,115 @@
+<chatbot-def start="greeting" bot-prompt="me: " user-prompt="you: ">
+
+  <state id="greeting">
+    <start>
+      <sentence>Hi! What is your question about?</sentence>
+    </start>
+    <input>
+      <case type="pattern" pattern="dog" next="animal"/>
+      <case type="pattern" pattern="cat" next="animal"/>
+      <case type="pattern" pattern="tomato" next="food"/>
+      <case type="pattern" pattern="war" next="history">
+        <sentence>You want to talk about history.</sentence>
+      </case>
+      <loopback>
+        <sentence delay="1.3">Sorry, I don't understand. I can understand the words : dog, cat, tomato or war</sentence>
+      </loopback>
+    </input>
+  </state>
+
+  <state id="animal">
+    <start>
+      <sentence>Do you want to talk about animals?</sentence>
+    </start>
+    <input>
+      <case type="pattern" pattern="yes" next="other"/>
+      <case type="pattern" pattern="no" next="repeat"/>
+      <case type="pattern" pattern="bye" next="quit"/>
+      <loopback>
+        <sentence delay="1.3">Sorry, I don't understand. Please say yes, no or bye to quit.</sentence>
+      </loopback>
+    </input>
+  </state>
+
+  <state id="food">
+    <start>
+      <sentence>Do you want to talk about food?</sentence>
+    </start>
+    <input>
+      <case type="pattern" pattern="yes" next="other"/>
+      <case type="pattern" pattern="no" next="repeat"/>
+      <case type="pattern" pattern="bye" next="quit"/>
+      <loopback>
+        <sentence delay="1.3">Sorry, I don't understand. Please say yes, no or bye to quit.</sentence>
+      </loopback>
+    </input>
+  </state>
+
+  <state id="history">
+    <start>
+      <sentence>Do you want to talk about history?</sentence>
+    </start>
+    <input>
+      <case type="pattern" pattern="yes" next="other"/>
+      <case type="pattern" pattern="no" next="repeat"/>
+      <case type="pattern" pattern="bye" next="quit"/>
+      <loopback>
+        <sentence delay="1.3">Sorry, I don't understand. Please say yes, no or bye to quit.</sentence>
+      </loopback>
+    </input>
+  </state>
+
+  <state id="other">
+    <start>
+      <sentence>Cool, Have you another question?</sentence>
+    </start>
+    <input>
+      <case type="pattern" pattern="yes" next="ask"/>
+      <case type="pattern" pattern="no" next="quit"/>
+      <case type="pattern" pattern="bye" next="quit"/>
+      <loopback>
+        <sentence delay="1.3">Sorry, I don't understand. Please say yes, no or bye to quit.</sentence>
+      </loopback>
+    </input>
+  </state>
+
+  <state id="repeat">
+    <start>
+      <sentence>Sorry, I don't understand. Can you repeat, please?</sentence>
+    </start>
+    <input>
+      <case type="pattern" pattern="dog" next="animal"/>
+      <case type="pattern" pattern="cat" next="animal"/>
+      <case type="pattern" pattern="tomato" next="food"/>
+      <case type="pattern" pattern="war" next="history">
+        <sentence>You want to talk about history.</sentence>
+      </case>
+      <loopback>
+        <sentence delay="1.3">Sorry, I don't understand. I can understand the words : dog, cat, tomato or war</sentence>
+      </loopback>
+    </input>
+  </state>
+
+  <state id="ask">
+    <start>
+      <sentence>What is your question about?</sentence>
+    </start>
+    <input>
+      <case type="pattern" pattern="dog" next="animal"/>
+      <case type="pattern" pattern="cat" next="animal"/>
+      <case type="pattern" pattern="tomato" next="food"/>
+      <case type="pattern" pattern="war" next="history">
+        <sentence>You want to talk about history.</sentence>
+      </case>
+      <loopback>
+        <sentence delay="1.3">Sorry, I don't understand. I can understand the words : dog, cat, tomato or war</sentence>
+      </loopback>
+    </input>
+  </state>
+
+  <state id="quit">
+    <start>
+      <sentence>It was a pleasure to talk with you. See you!</sentence>
+    </start>
+  </state>
+</chatbot-def>
